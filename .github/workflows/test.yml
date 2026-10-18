@@ -1,0 +1,51 @@
+name: test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: contracts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: foundry-rs/foundry-toolchain@v1
+      - name: Install libraries
+        run: forge install foundry-rs/forge-std@v1.17.0 OpenZeppelin/openzeppelin-contracts@v5.6.1 --no-git
+      - name: Build
+        run: forge build --sizes
+      - name: Test (unit, fuzz, invariants; Robinhood Chain fork tests run when the RPC is reachable)
+        run: forge test -vv
+
+  server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: foundry-rs/foundry-toolchain@v1
+      - name: Build KeelBoard for the end-to-end test
+        working-directory: contracts
+        run: |
+          forge install foundry-rs/forge-std@v1.17.0 OpenZeppelin/openzeppelin-contracts@v5.6.1 --no-git
+          forge build
+      - name: Install
+        working-directory: server
+        run: npm ci
+      - name: Test (offline + anvil end-to-end with the real KeelBoard)
+        working-directory: server
+        run: npm test
+
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Hash and encoding vectors
+        run: node --test web/shared/test/abi.test.mjs
