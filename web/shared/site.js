@@ -12,7 +12,7 @@
 //   <span data-ca></span>          CA strip: address + Copy (+ Buy on Pons unless data-no-buy). data-ca="chip" = compact chip
 //   <span data-countdown></span>   "Launch date soon" while launch_at is null · D H M S before launch · "Live on Pons" after
 //                                  data-countdown="big" = large variant with UTC + local time
-//   <a data-buy>                   href → buyUrl()        <a data-link="x|telegram|site|explorer|launchpad">
+//   <a data-buy>                   href → buyUrl()        <a data-link="x|telegram|github|site|explorer|launchpad">
 //   <span data-token-name></span>  "$" + symbol once set, else "the token" (data-token-name="cap" → "The token")
 //   [data-needs-symbol]            hidden while token.symbol is null (ticker rule)
 //
@@ -31,6 +31,7 @@ export const DISCLOSURE = 'Not affiliated with Robinhood Markets, Inc. or Pons. 
 
 const sv = (d, extra = '') => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"${extra}>${d}</svg>`
 export const ICON = {
+  gh: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>',
   x: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
   tg: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.94 4.3 18.7 19.6c-.24 1.08-.88 1.35-1.79.84l-4.94-3.64-2.38 2.29c-.26.26-.48.48-.99.48l.35-5.02 9.14-8.26c.4-.35-.09-.55-.62-.2L6.17 13.2 1.3 11.68c-1.06-.33-1.08-1.06.22-1.57L20.55 2.8c.88-.32 1.65.21 1.39 1.5z"/></svg>',
   copy: sv('<rect x="9" y="9" width="12" height="12"/><path d="M5 15V3h12"/>'),
@@ -54,7 +55,7 @@ export const WORDMARK_HTML = '<span class="kc-word">KEELCRACK</span>'
 const DEFAULTS = {
   name: 'KEELCRACK', symbol: null, ca: ZERO, decimals: 18, launch_at: null,
   chain: { name: 'Robinhood Chain', id: 4663, rpc: 'https://robinhood-rpc.publicnode.com', explorer: 'https://robinhoodchain.blockscout.com' },
-  launchpad: 'https://www.ponsfamily.com/launchpad', pons_token_url: '', site: 'https://keelcrack.xyz', x: '', telegram: '',
+  launchpad: 'https://www.ponsfamily.com/launchpad', pons_token_url: '', site: 'https://keelcrack.xyz', x: '', telegram: '', github: '',
 }
 
 export let token = { ...DEFAULTS }
@@ -350,11 +351,12 @@ export function mountFooter(target = '#foot') {
           <div class="kc-foot-social">
             <a class="icon-btn" data-link="x" target="_blank" rel="noopener" aria-label="KEELCRACK on X">${ICON.x}</a>
             <a class="icon-btn" data-link="telegram" target="_blank" rel="noopener" aria-label="KEELCRACK on Telegram">${ICON.tg}</a>
+            <a class="icon-btn" data-link="github" target="_blank" rel="noopener" aria-label="KEELCRACK source on GitHub">${ICON.gh}</a>
           </div>
         </div>
         <div><h2>Crack</h2><ul><li><a href="/board/">Board</a></li><li><a href="/practice/">Practice</a></li><li><a href="/leaderboard/">Leaderboard</a></li><li><a href="/agents/">Agents</a></li><li><a href="/skill.md">skill.md</a></li></ul></div>
         <div><h2>Read</h2><ul><li><a href="/docs/#questions">How questions are made</a></li><li><a href="/docs/#encoding">Answer encoding</a></li><li><a href="/docs/#commit">Commit and reveal</a></li><li><a href="/docs/#trust">Keys and trust</a></li><li><a href="/docs/#risks">Risks</a></li></ul></div>
-        <div><h2>On-chain</h2><ul><li><a href="/ledger/">Ledger</a></li><li><a data-buy target="_blank" rel="noopener">Buy on Pons</a></li><li><a data-link="explorer" target="_blank" rel="noopener">Explorer</a></li><li><a href="/docs/#addresses">Addresses</a></li></ul></div>
+        <div><h2>On-chain</h2><ul><li><a href="/ledger/">Ledger</a></li><li><a data-buy target="_blank" rel="noopener">Buy on Pons</a></li><li><a data-link="explorer" target="_blank" rel="noopener">Explorer</a></li><li><a href="/docs/#addresses">Addresses</a></li><li><a data-link="github" target="_blank" rel="noopener">Source code</a></li></ul></div>
       </div>
       <div class="kc-foot-row"><span data-ca data-no-buy></span><span data-countdown></span></div>
       <p class="kc-legal"><b>${esc(LEGAL)}</b> ${esc(DISCLOSURE)}</p>
@@ -369,6 +371,7 @@ export function applyLinks(root = document) {
   const set = (sel, url) => root.querySelectorAll(sel).forEach((a) => { if (url) { a.href = url; a.removeAttribute('aria-disabled') } else { a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true') } })
   set('[data-link="x"]', token.x)
   set('[data-link="telegram"]', token.telegram)
+  set('[data-link="github"]', token.github)
   set('[data-link="site"]', token.site)
   set('[data-link="launchpad"]', token.launchpad)
   set('[data-link="explorer"]', token.chain?.explorer || DEFAULTS.chain.explorer)
