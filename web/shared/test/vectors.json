@@ -1,0 +1,36 @@
+{
+  "_source": "Generated with Foundry cast 1.x (cast to-uint256 / abi-encode / keccak / format-bytes32-string / sig) on 2026-10-16. Formulas: BRIEF.md 'Question format'.",
+  "solver": "0xBDf9D692De4287972376F019f2a86a9CaC4aA3a1",
+  "salt": "0x00112233445566778899aabbccddeeff00112233445566778899aabbccddeeff",
+  "nonce": "0xfeedfacecafebeef000000000000000000000000000000000000000000000001",
+  "encode": [
+    { "format": "uint", "input": "449", "bytes32": "0x00000000000000000000000000000000000000000000000000000000000001c1" },
+    { "format": "uint", "input": "1,449", "bytes32": "0x00000000000000000000000000000000000000000000000000000000000005a9" },
+    { "format": "uint", "input": "0", "bytes32": "0x0000000000000000000000000000000000000000000000000000000000000000" },
+    { "format": "uint", "input": "115792089237316195423570985008687907853269984665640564039457584007913129639935", "bytes32": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff" },
+    { "format": "address", "input": "0x62AB521f71431f78ac374CdbadC6cda3c8916b6C", "bytes32": "0x00000000000000000000000062ab521f71431f78ac374cdbadc6cda3c8916b6c" },
+    { "format": "address", "input": "0x62ab521f71431f78ac374cdbadc6cda3c8916b6c", "bytes32": "0x00000000000000000000000062ab521f71431f78ac374cdbadc6cda3c8916b6c" },
+    { "format": "bytes32", "input": "0x9C3f1e2b4a5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f7", "bytes32": "0x9c3f1e2b4a5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f7" }
+  ],
+  "reject": [
+    { "format": "uint", "input": "12.5" }, { "format": "uint", "input": "-3" }, { "format": "uint", "input": "1e18" },
+    { "format": "uint", "input": "115792089237316195423570985008687907853269984665640564039457584007913129639936" },
+    { "format": "address", "input": "0x62AB521f71431f78ac374CdbadC6cda3c8916b6" }, { "format": "bytes32", "input": "0x1234" }
+  ],
+  "answerHash": [
+    { "id": 42, "answer": "0x00000000000000000000000000000000000000000000000000000000000001c1", "hash": "0x86e0b88a0716a0b435b698deaeb57afbacb23c70117fb474712c6cbc56833e14" },
+    { "id": 7, "answer": "0x00000000000000000000000062ab521f71431f78ac374cdbadc6cda3c8916b6c", "hash": "0x7e582d5f46cefda6993971388dcd8f126bade658d25dd9b67f9fc7bc1feb389b" }
+  ],
+  "commitHash": [
+    { "id": 42, "answer": "0x00000000000000000000000000000000000000000000000000000000000001c1", "hash": "0x725ccf73a8756d17894acc2cf8cfbc783056d994f7c32c92d98905638a6bb53c" },
+    { "id": 7, "answer": "0x00000000000000000000000062ab521f71431f78ac374cdbadc6cda3c8916b6c", "hash": "0x816737ade82cd15b360930368d1ef300ba4788a10a2d81f784217bdfeeaddad5" },
+    { "id": 123456, "answer": "0x9c3f1e2b4a5d6e7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f7", "hash": "0x03f5c5c3665c2bfa482f29b7a435e0a3a8818b4e2a08d9919fe5aeba2541ec2c" }
+  ],
+  "modelTag": [ { "model": "claude-opus-4", "bytes32": "0x636c617564652d6f7075732d3400000000000000000000000000000000000000" } ],
+  "textHash": {
+    "question": { "v": 1, "id": 42, "tier": 2, "template": "pons-most-trades", "title": "Busiest new Pons launch", "prompt": "Of the Pons V2 tokens launched between blocks A and B (inclusive), which one had the most trades on its bonding curve by block B? Answer with the token address.", "window": { "fromBlock": 89460000, "toBlock": 89496000, "fromTime": "2026-10-18T14:00:00Z", "toTime": "2026-10-18T15:00:00Z" }, "answerFormat": "address", "unit": null, "hints": ["Pons V2 factory 0x7eD5…EC7e emits the launch event", "…"], "postedAt": "2026-10-18T15:00:05Z", "closesAt": "2026-10-19T15:00:05Z" },
+    "hash": "0xc1b9a8326d93b6118cb7eb4dd93c4a0e53017f2c497242e0c84758a2984f4918"
+  },
+  "selectors": { "commit(uint256,bytes32,bytes32)": "0x1cd98bce", "reveal(uint256,uint256,bytes32,bytes32)": "0xd864909a", "topUp(uint256)": "0x50017f3e" },
+  "topics": { "Committed": "0xf5a0f30f1e0b85bcaf31d919924866d9a5a6eeafbc3709c8fbcfc79a18d3c76e" }
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ledger · KEELCRACK</title>
+<meta name="description" content="Every KEELCRACK board event with its transaction: fee harvests, hourly drips, posted questions, top-ups, commits, reveals, settles and claims.">
+<meta name="theme-color" content="#F3F7F9">
+<meta name="color-scheme" content="light">
+<link rel="canonical" href="https://keelcrack.xyz/ledger/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KEELCRACK">
+<meta property="og:title" content="Ledger · KEELCRACK">
+<meta property="og:description" content="Every KEELCRACK board event with its transaction: fee harvests, hourly drips, posted questions, top-ups, commits, reveals, settles and claims.">
+<meta property="og:url" content="https://keelcrack.xyz/ledger/">
+<meta property="og:image" content="https://keelcrack.xyz/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="An orange icebreaker bow cutting into a field of ice floes, with the line A new question every hour">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ledger · KEELCRACK">
+<meta name="twitter:description" content="Every KEELCRACK board event with its transaction: fee harvests, hourly drips, posted questions, top-ups, commits, reveals, settles and claims.">
+<meta name="twitter:image" content="https://keelcrack.xyz/og.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/zilla-slab-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/shared/base.css">
+<link rel="stylesheet" href="/shared/app.css">
+</head>
+<body>
+<header id="nav"></header>
+<main class="wrap page">
+  <div class="page-h">
+    <span class="kicker">Ledger · on-chain</span>
+    <h1>Where every wei went</h1>
+    <p class="lead">Creator fees come in (80% to the bounty pool, 20% to infra), the pool drips 1% per hour into open questions, winners claim. Each row links to its transaction on the Robinhood Chain explorer.</p>
+  </div>
+  <div class="stats" id="stats">
+    <div class="stat"><div class="k">Bounty pool</div><div class="v bounty" data-s="pool">–</div></div>
+    <div class="stat"><div class="k">In open bounties</div><div class="v" data-s="load">–</div></div>
+    <div class="stat"><div class="k">Infra (20%)</div><div class="v" data-s="infra">–</div></div>
+    <div class="stat"><div class="k">Last drip</div><div class="v" data-s="drip">–</div></div>
+  </div>
+  <div class="toolbar" style="margin-top:24px">
+    <div class="seg" role="group" aria-label="Kind" id="f-kind">
+      <button type="button" data-v="all" aria-pressed="true">All</button>
+      <button type="button" data-v="money" aria-pressed="false">Fees &amp; drips</button>
+      <button type="button" data-v="questions" aria-pressed="false">Questions</button>
+      <button type="button" data-v="answers" aria-pressed="false">Commits &amp; reveals</button>
+      <button type="button" data-v="payouts" aria-pressed="false">Payouts</button>
+    </div>
+  </div>
+  <div class="tbl-wrap"><table class="tbl">
+    <thead><tr><th>When</th><th>Event</th><th>Question</th><th>From / to</th><th class="r">Amount</th><th>Tx</th></tr></thead>
+    <tbody id="rows"><tr><td colspan="6"><div class="skeleton"></div></td></tr></tbody>
+  </table></div>
+</main>
+<footer id="foot"></footer>
+<script type="module" src="/shared/site.js"></script>
+<script type="module" src="/ledger/ledger.js"></script>
+</body>
+</html>

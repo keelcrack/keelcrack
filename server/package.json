@@ -1,0 +1,17 @@
+{
+  "name": "keelcrack-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "KEELCRACK API: hourly RC questions, KeelBoard keeper, practice checker, live SSE",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node index.mjs",
+    "dry-run": "node questions/dry-run.mjs",
+    "test": "NO_DOTENV=1 NO_NETWORK=1 QUIET=1 node --test --test-timeout=120000 'test/*.test.mjs'",
+    "test:e2e": "NO_DOTENV=1 QUIET=1 node --test --test-timeout=180000 test/e2e.anvil.test.mjs"
+  },
+  "dependencies": {
+    "viem": "2.57.3"
+  }
+}

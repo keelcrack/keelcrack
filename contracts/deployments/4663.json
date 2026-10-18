@@ -1,0 +1,22 @@
+{
+  "board": "0x9fC3c5a1cf9F7E5aD9A022905326f83d89608FB3",
+  "bondBps": 500,
+  "chainId": 4663,
+  "deployBlock": 26200344,
+  "dripBps": 100,
+  "dripInterval": 3600,
+  "dryRun": false,
+  "feeEscrow": "0xd3AFEB2a57f70eF218Aa82451c51B2fb0416Ac9e",
+  "infraBps": 2000,
+  "keyTimelock": 172800,
+  "maxCommits": 256,
+  "maxOpen": 48,
+  "memeHook": "0xE5e702641Ea86F4ae6cC3cDaeD2B886f976Be044",
+  "minBondWei": "300000000000000",
+  "note": "token not bound yet; bind(token) after the Pons launch if creatorFeeRecipient = board, else manual fee mode. deployBlock is the contract's block.number (L1 number on RC); take the L2 block from the deploy tx receipt.",
+  "owner": "0xbEDda6e56d5d98A14B90De2Ba7f563079107a875",
+  "pauser": "0xbEDda6e56d5d98A14B90De2Ba7f563079107a875",
+  "ponsFactory": "0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e",
+  "poster": "0xBDf9D692De4287972376F019f2a86a9CaC4aA3a1",
+  "revealWindow": 600
+}

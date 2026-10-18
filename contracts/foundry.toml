@@ -1,0 +1,35 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+test = "test"
+script = "script"
+solc_version = "0.8.28"
+# Robinhood Chain = Arbitrum Orbit (Nitro): PUSH0 / TSTORE / MCOPY work on RC mainnet, so cancun is safe
+# (ReentrancyGuardTransient uses TSTORE; same setting as 171-176, deployed and verified on 4663).
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+via_ir = true
+remappings = [
+  "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+  "forge-std/=lib/forge-std/src/",
+]
+# Deploy.s.sol writes deployments/<chainid>.json (broadcast) or deployments/<chainid>.dryrun.json (simulation)
+fs_permissions = [{ access = "read-write", path = "./deployments" }]
+
+[fuzz]
+runs = 256
+
+[invariant]
+runs = 128
+depth = 64
+fail_on_revert = false
+
+[rpc_endpoints]
+# *.chain.robinhood.com is blocked on the user's ISP -> drpc (for forks) / publicnode (keeps only a few blocks of state).
+robinhood = "https://robinhood-rpc.publicnode.com"
+robinhood_fork = "https://robinhood.drpc.org"
+
+[lint]
+lint_on_build = false

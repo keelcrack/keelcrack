@@ -1,0 +1,116 @@
+{
+  "_source": "Expected values computed with Foundry cast (keccak / abi-encode / to-uint256) on 2026-10-16, independent of server code. BRIEF \"Question format\".",
+  "question": {
+    "v": 1,
+    "id": 7,
+    "tier": 3,
+    "template": "stock-top-volume",
+    "title": "Busiest stock pool by ETH volume",
+    "prompt": "Of the four stock/WETH Uniswap V3 pools — NVDA 0x62ab521f71431f78ac374cdbadc6cda3c8916b6c … which had the largest WETH volume between blocks 89457814 and 89493595 (inclusive)? Volume = the sum of |amount0|.",
+    "window": {
+      "fromBlock": 89457814,
+      "toBlock": 89493595,
+      "fromTime": "2026-10-15T19:00:00Z",
+      "toTime": "2026-10-15T20:00:00Z"
+    },
+    "answerFormat": "address",
+    "unit": null,
+    "hints": [
+      "Uniswap V3 Swap topic0 = 0xc42079f94a6350d7e6235f29174924f928cc2ac818eb64fed8004e115fbcca67",
+      "token0 is WETH"
+    ],
+    "postedAt": "2026-10-15T20:00:45Z",
+    "closesAt": "2026-10-16T20:00:45Z"
+  },
+  "canonical": "{\"v\":1,\"id\":7,\"tier\":3,\"template\":\"stock-top-volume\",\"title\":\"Busiest stock pool by ETH volume\",\"prompt\":\"Of the four stock/WETH Uniswap V3 pools — NVDA 0x62ab521f71431f78ac374cdbadc6cda3c8916b6c … which had the largest WETH volume between blocks 89457814 and 89493595 (inclusive)? Volume = the sum of |amount0|.\",\"window\":{\"fromBlock\":89457814,\"toBlock\":89493595,\"fromTime\":\"2026-10-15T19:00:00Z\",\"toTime\":\"2026-10-15T20:00:00Z\"},\"answerFormat\":\"address\",\"unit\":null,\"hints\":[\"Uniswap V3 Swap topic0 = 0xc42079f94a6350d7e6235f29174924f928cc2ac818eb64fed8004e115fbcca67\",\"token0 is WETH\"],\"postedAt\":\"2026-10-15T20:00:45Z\",\"closesAt\":\"2026-10-16T20:00:45Z\"}",
+  "textHash": "0x87f373e6099053cc54f4a4b949e2053a48e27b79d9cd8dfd174abd1caf7c600b",
+  "salt": "0x5a17000000000000000000000000000000000000000000000000000000000001",
+  "nonce": "0x00000000000000000000000000000000000000000000000000000000000000aa",
+  "solver": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+  "encode": [
+    {
+      "format": "uint",
+      "input": "245",
+      "bytes32": "0x00000000000000000000000000000000000000000000000000000000000000f5"
+    },
+    {
+      "format": "uint",
+      "input": "4261033056758889151",
+      "bytes32": "0x0000000000000000000000000000000000000000000000003b223afd3c4f7abf"
+    },
+    {
+      "format": "uint",
+      "input": "0",
+      "bytes32": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "format": "address",
+      "input": "0xDDCBBa3666f578E3F09516f21Ff85BFee859AB5e",
+      "bytes32": "0x000000000000000000000000ddcbba3666f578e3f09516f21ff85bfee859ab5e"
+    },
+    {
+      "format": "bytes32",
+      "input": "0xD760752101CE37A0BF13FB997B5C4C2DD010B035FA2FD4213E499287FEBD30E8",
+      "bytes32": "0xd760752101ce37a0bf13fb997b5c4c2dd010b035fa2fd4213e499287febd30e8"
+    }
+  ],
+  "reject": [
+    {
+      "format": "uint",
+      "input": "12.5"
+    },
+    {
+      "format": "uint",
+      "input": "-1"
+    },
+    {
+      "format": "uint",
+      "input": "1e3"
+    },
+    {
+      "format": "uint",
+      "input": ""
+    },
+    {
+      "format": "address",
+      "input": "0x1234"
+    },
+    {
+      "format": "bytes32",
+      "input": "0xgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
+    }
+  ],
+  "answerHash": [
+    {
+      "id": 7,
+      "answer": "0x000000000000000000000000ddcbba3666f578e3f09516f21ff85bfee859ab5e",
+      "hash": "0x1f42a700712a82f6ebbbee17bb91d5315470a7e2ae692082a94f5918714b3d98"
+    },
+    {
+      "id": 1,
+      "answer": "0x00000000000000000000000000000000000000000000000000000000000000f5",
+      "hash": "0x71826c2e3f35cfa27aba6d8036e13887fab7dfe2fc0ebc2438a5150b01c81520"
+    },
+    {
+      "id": 99,
+      "answer": "0xd760752101ce37a0bf13fb997b5c4c2dd010b035fa2fd4213e499287febd30e8",
+      "hash": "0xaca447558599c6d72d086f72c6fcc050df8a7e143815cead906891deab77bf97"
+    }
+  ],
+  "commitHash": [
+    {
+      "id": 7,
+      "answer": "0x000000000000000000000000ddcbba3666f578e3f09516f21ff85bfee859ab5e",
+      "hash": "0x2b410ce00c91e371eae1a55be372488468459e63771de525502c2152e8693f71"
+    },
+    {
+      "id": 1,
+      "answer": "0x0000000000000000000000000000000000000000000000003b223afd3c4f7abf",
+      "hash": "0x898253fbe8c155b3ab404f298fcc686ac8e27499c2ba89b3353376d39717bd64"
+    }
+  ],
+  "modelTag": {
+    "model": "claude-opus-4",
+    "bytes32": "0x636c617564652d6f7075732d3400000000000000000000000000000000000000"
+  }
+}

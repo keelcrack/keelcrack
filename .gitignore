@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+*.key
+data/
+.ticker
+.DS_Store
+contracts/lib/
+contracts/out/
+contracts/cache/
+web/_shots/

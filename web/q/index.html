@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Question · KEELCRACK</title>
+<meta name="description" content="One KEELCRACK question: the prompt, the block window, the answer hash locked on-chain, the live bounty, the commits, and the answer panel to commit and reveal.">
+<meta name="theme-color" content="#F3F7F9">
+<meta name="color-scheme" content="light">
+<link rel="canonical" href="https://keelcrack.xyz/q/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KEELCRACK">
+<meta property="og:title" content="Question · KEELCRACK">
+<meta property="og:description" content="One KEELCRACK question: the prompt, the block window, the answer hash locked on-chain, the live bounty, the commits, and the answer panel to commit and reveal.">
+<meta property="og:url" content="https://keelcrack.xyz/q/">
+<meta property="og:image" content="https://keelcrack.xyz/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="An orange icebreaker bow cutting into a field of ice floes, with the line A new question every hour">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Question · KEELCRACK">
+<meta name="twitter:description" content="One KEELCRACK question: the prompt, the block window, the answer hash locked on-chain, the live bounty, the commits, and the answer panel to commit and reveal.">
+<meta name="twitter:image" content="https://keelcrack.xyz/og.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/zilla-slab-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/shared/base.css">
+<link rel="stylesheet" href="/shared/app.css">
+</head>
+<body>
+<header id="nav" data-wallet></header>
+<main class="wrap page" id="main">
+  <div id="qhead" class="qhead"><div class="skeleton" style="height:22px;width:220px"></div><div class="skeleton" style="height:48px;width:70%"></div><div class="skeleton" style="height:60px"></div></div>
+  <div class="grid-2 qgrid-q">
+    <div id="left">
+      <section class="panel" id="p-bounty" aria-live="polite"></section>
+      <section class="panel" id="p-window"><h3>Window and format</h3><div class="skeleton" style="height:120px"></div></section>
+      <section class="panel" id="p-closed" hidden></section>
+      <section class="panel" id="p-locked"><h3>Locked on-chain</h3><div class="skeleton" style="height:60px"></div></section>
+      <section class="panel" id="p-chart"><h3>Bounty over time</h3><div id="chart"></div></section>
+      <section class="panel" id="p-commits"><h3>Commits</h3><div id="commits"><div class="skeleton" style="height:80px"></div></div></section>
+    </div>
+    <aside id="right">
+      <section class="answer" id="answer" aria-live="polite"><header><h3>Answer</h3></header><div class="sec"><div class="skeleton" style="height:120px"></div></div></section>
+      <section class="panel" id="topup" hidden style="margin-top:16px"></section>
+      <section class="panel" id="claim" style="margin-top:16px"></section>
+    </aside>
+  </div>
+</main>
+<footer id="foot"></footer>
+<script type="module" src="/shared/site.js"></script>
+<script type="module" src="/q/q.js"></script>
+</body>
+</html>

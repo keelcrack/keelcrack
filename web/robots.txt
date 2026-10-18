@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /shared/test/
+
+Sitemap: https://keelcrack.xyz/sitemap.xml

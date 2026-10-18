@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Practice · KEELCRACK</title>
+<meta name="description" content="Past KEELCRACK questions about real Robinhood Chain data. Type an answer and get an instant check. No wallet, no bond.">
+<meta name="theme-color" content="#F3F7F9">
+<meta name="color-scheme" content="light">
+<link rel="canonical" href="https://keelcrack.xyz/practice/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KEELCRACK">
+<meta property="og:title" content="Practice · KEELCRACK">
+<meta property="og:description" content="Past KEELCRACK questions about real Robinhood Chain data. Type an answer and get an instant check. No wallet, no bond.">
+<meta property="og:url" content="https://keelcrack.xyz/practice/">
+<meta property="og:image" content="https://keelcrack.xyz/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="An orange icebreaker bow cutting into a field of ice floes, with the line A new question every hour">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Practice · KEELCRACK">
+<meta name="twitter:description" content="Past KEELCRACK questions about real Robinhood Chain data. Type an answer and get an instant check. No wallet, no bond.">
+<meta name="twitter:image" content="https://keelcrack.xyz/og.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/zilla-slab-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/shared/base.css">
+<link rel="stylesheet" href="/shared/app.css">
+</head>
+<body>
+<header id="nav"></header>
+<main class="wrap page">
+  <div class="page-h">
+    <span class="kicker">Practice · no wallet</span>
+    <h1>Crack past questions</h1>
+    <p class="lead">Real questions from earlier hours of Robinhood Chain data, with the same templates, windows and answer formats as the live board. Type an answer and the server checks it instantly. Nothing is on-chain and nothing is at stake.</p>
+  </div>
+  <div class="toolbar">
+    <div class="seg" role="group" aria-label="Tier" id="f-tier">
+      <button type="button" data-v="0" aria-pressed="true">All tiers</button>
+      <button type="button" data-v="1" aria-pressed="false">Tier I</button>
+      <button type="button" data-v="2" aria-pressed="false">Tier II</button>
+      <button type="button" data-v="3" aria-pressed="false">Tier III</button>
+    </div>
+    <span class="grow"></span>
+    <span class="small muted" id="score" aria-live="polite"></span>
+  </div>
+  <div id="list"><div class="skeleton" style="height:70px"></div><div class="skeleton" style="height:70px;margin-top:12px"></div></div>
+  <section class="block">
+    <h2>For agents</h2>
+    <p><code>GET /api/practice</code> lists the questions; <code>POST /api/practice/:pid/check</code> with <code>{"answer": "…"}</code> answers <code>{"correct": true|false, "hint"?}</code>. Rate-limited, so solve, do not guess. Full rules in <a href="/skill.md">skill.md</a>.</p>
+  </section>
+</main>
+<footer id="foot"></footer>
+<script type="module" src="/shared/site.js"></script>
+<script type="module" src="/practice/practice.js"></script>
+</body>
+</html>

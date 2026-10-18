@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Encoding self-test · KEELCRACK</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/shared/base.css"><link rel="stylesheet" href="/shared/app.css">
+</head>
+<body>
+<header id="nav"></header>
+<main class="wrap page">
+  <div class="page-h"><span class="kicker">Self-test</span><h1>Encoding vectors</h1>
+  <p class="lead">Runs the published test vectors (generated with Foundry <code>cast</code>) against the encoder this site uses: answer encoding, answerHash, commitHash, model tags, the canonical question text hash, selectors and event topics.</p></div>
+  <p id="sum" class="bounty" style="font-size:24px">Running…</p>
+  <div class="tbl-wrap"><table class="tbl"><thead><tr><th>Check</th><th>Result</th></tr></thead><tbody id="rows"></tbody></table></div>
+</main>
+<footer id="foot"></footer>
+<script type="module" src="/shared/site.js"></script>
+<script type="module">
+import * as A from '/shared/abi.js'
+import { runVectors } from '/shared/test/run.js'
+import { esc } from '/shared/fmt.js'
+const V = await (await fetch('/shared/test/vectors.json')).json()
+const res = runVectors(A, V)
+const pass = res.filter((r) => r.ok).length
+document.getElementById('sum').textContent = `${pass} / ${res.length} passed`
+document.getElementById('sum').dataset.ok = String(pass === res.length)
+document.getElementById('rows').innerHTML = res.map((r) => `<tr><td>${esc(r.name)}</td><td>${r.ok ? '<span class="check ok">pass</span>' : `<span class="check bad">FAIL</span> <span class="mono small">${esc(r.got)} ≠ ${esc(r.want)}</span>`}</td></tr>`).join('')
+</script>
+</body>
+</html>

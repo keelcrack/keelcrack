@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Board · KEELCRACK</title>
+<meta name="description" content="Every open KEELCRACK question with its live bounty, time left and commits, plus the questions cracked or left unsolved in the last day.">
+<meta name="theme-color" content="#F3F7F9">
+<meta name="color-scheme" content="light">
+<link rel="canonical" href="https://keelcrack.xyz/board/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KEELCRACK">
+<meta property="og:title" content="Board · KEELCRACK">
+<meta property="og:description" content="Every open KEELCRACK question with its live bounty, time left and commits, plus the questions cracked or left unsolved in the last day.">
+<meta property="og:url" content="https://keelcrack.xyz/board/">
+<meta property="og:image" content="https://keelcrack.xyz/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="An orange icebreaker bow cutting into a field of ice floes, with the line A new question every hour">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Board · KEELCRACK">
+<meta name="twitter:description" content="Every open KEELCRACK question with its live bounty, time left and commits, plus the questions cracked or left unsolved in the last day.">
+<meta name="twitter:image" content="https://keelcrack.xyz/og.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/zilla-slab-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/shared/base.css">
+<link rel="stylesheet" href="/shared/app.css">
+</head>
+<body>
+<header id="nav" data-wallet></header>
+<main class="wrap page">
+  <div class="page-h">
+    <span class="kicker">The board · live</span>
+    <h1>Open questions</h1>
+    <p class="lead">One new question every hour, computed from the previous hour of Robinhood Chain data. The answer hash is locked on-chain before anyone replies; the bounty grows every hour until the first correct commit cracks it.</p>
+  </div>
+
+  <div class="stats" id="stats" aria-live="polite">
+    <div class="stat"><div class="k">Bounty pool</div><div class="v bounty" data-s="pool">–</div><div class="s">feeds open questions 1% per hour</div></div>
+    <div class="stat"><div class="k">Open</div><div class="v" data-s="open">–</div><div class="s" data-s="load">–</div></div>
+    <div class="stat"><div class="k">Next question</div><div class="v" data-s="nextq">–</div><div class="s">posted at :00 UTC</div></div>
+    <div class="stat"><div class="k">Next drip</div><div class="v" data-s="nextd">–</div><div class="s">pool → open bounties</div></div>
+    <div class="stat"><div class="k">Cracked / unsolved</div><div class="v" data-s="closed">–</div><div class="s">all time</div></div>
+  </div>
+
+  <div class="toolbar" style="margin-top:26px">
+    <div class="seg" role="group" aria-label="Status" id="f-status">
+      <button type="button" data-v="open" aria-pressed="true">Open</button>
+      <button type="button" data-v="solved" aria-pressed="false">Cracked</button>
+      <button type="button" data-v="unsolved" aria-pressed="false">Unsolved</button>
+      <button type="button" data-v="all" aria-pressed="false">All</button>
+    </div>
+    <div class="seg" role="group" aria-label="Tier" id="f-tier">
+      <button type="button" data-v="0" aria-pressed="true">All tiers</button>
+      <button type="button" data-v="1" aria-pressed="false">I</button>
+      <button type="button" data-v="2" aria-pressed="false">II</button>
+      <button type="button" data-v="3" aria-pressed="false">III</button>
+    </div>
+    <span class="grow"></span>
+    <label class="small muted" for="f-sort">Sort</label>
+    <select class="input" id="f-sort" style="width:auto;min-height:36px;padding:4px 10px">
+      <option value="bounty">Biggest bounty</option>
+      <option value="new">Newest</option>
+      <option value="closing">Closing soonest</option>
+      <option value="commits">Most commits</option>
+    </select>
+  </div>
+  <div id="cards" class="qgrid" aria-live="polite"><div class="skeleton" style="height:190px"></div><div class="skeleton" style="height:190px"></div><div class="skeleton" style="height:190px"></div></div>
+
+  <section class="block">
+    <h2>Recently closed</h2>
+    <p class="muted" style="margin-top:-6px">After a question closes the answer, the salt and the working (the logs used) are public, so anyone can recompute it.</p>
+    <div class="tbl-wrap"><table class="tbl">
+      <thead><tr><th>#</th><th>Question</th><th>Result</th><th class="r">Bounty</th><th class="r">Closed</th></tr></thead>
+      <tbody id="closed"><tr><td colspan="5"><div class="skeleton"></div></td></tr></tbody>
+    </table></div>
+  </section>
+</main>
+<footer id="foot"></footer>
+<script type="module" src="/shared/site.js"></script>
+<script type="module" src="/board/board.js"></script>
+</body>
+</html>

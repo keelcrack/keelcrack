@@ -1,0 +1,36 @@
+# /etc/systemd/system/keelcrack.service — KEELCRACK API: hourly RC questions, KeelBoard keeper (post / drip / settle /
+# harvest), practice checker, SSE /api/live.
+# Installed by deploy/provision.sh, which substitutes the real port for PORT_PLACEHOLDER (pick a free one with `ss -ltnp`).
+# Layout: /srv/keelcrack/{web,server,contracts/deployments,contracts/abi}; settings in /etc/keelcrack.env (root:keelcrack 640):
+#   SALT_KEY (written once by provision.sh — seals answers + salts of open questions at rest; never rotate while questions
+#   are open), KEEPER_KEYSTORE + KEEPER_PASSWORD_FILE (or KEEPER_PRIVATE_KEY) = the board's poster key, RPC_URLS (optional).
+[Unit]
+Description=KEELCRACK server (keelcrack.xyz API + keeper)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=keelcrack
+Group=keelcrack
+WorkingDirectory=/srv/keelcrack
+ExecStart=/usr/bin/env node server/index.mjs
+Environment=NODE_ENV=production
+Environment=PORT=PORT_PLACEHOLDER
+Environment=HOST=127.0.0.1
+Environment=SERVE_WEB=0
+Environment=WEB_ROOT=/srv/keelcrack/web
+Environment=DATA_DIR=/srv/keelcrack/server/data
+EnvironmentFile=-/etc/keelcrack.env
+Restart=always
+RestartSec=3
+LimitNOFILE=65536
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/srv/keelcrack/server/data
+ReadOnlyPaths=/etc/keelcrack
+
+[Install]
+WantedBy=multi-user.target
